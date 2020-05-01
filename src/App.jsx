@@ -10,14 +10,14 @@ class App extends Component {
         distance:"",
         gender: "",
         age: "",
-        entrySaved: false
+        entrySaved: false,
         renderLoginForm: false,
         authenticated: false,
         message: ""
     };
 
     onChangeHandler = e => {
-        this.setState({ [e.target.name]: e.target.value });
+        this.setState({ [e.target.name]: e.target.value, entrySaved: false });
     };
 
     onLogin = async e => {
