@@ -9,11 +9,27 @@ class App extends Component {
         distance:"",
         gender: "",
         age: "",
-        renderLoginForm: false
+        renderLoginForm: false,
+        authenticated: false,
+        message: ""
     };
 
     onChangeHandler = e => {
         this.setState({ [e.target.name]: e.target.value });
+    };
+
+    onLogin = async e => {
+      e.preventDefault();
+      const response = await authenticate(
+        e.target.email.value,
+        e.target.password.value
+      );
+
+      if (response.authenticated) {
+        this.setState({ authenticated: true });
+      } else {
+        this.setState({ message: response.message, renderLoginForm: false });
+      }
     };
 
   
