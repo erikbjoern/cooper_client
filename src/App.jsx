@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import DisplayCooperResult from "./components/DisplayCooperResult";
 import InputFields from "./components/InputFields";
 import LoginForm from "./components/LoginForm";
+import { authenticate } from "./modules/auth"
 
 class App extends Component {
     state = {
@@ -26,7 +27,7 @@ class App extends Component {
       );
 
       if (response.authenticated) {
-        this.setState({ authenticated: true });
+        this.setState({ authenticated: true, message: response.message });
       } else {
         this.setState({ message: response.message, renderLoginForm: false });
       }
@@ -36,7 +37,7 @@ class App extends Component {
 
   render() {
     const renderLogin = this.state.renderLoginForm ? (
-      <LoginForm />
+      <LoginForm submitFormHandler={this.onLogin}/>
     ) : (
       <button 
       id="login"
