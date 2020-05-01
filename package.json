@@ -17,7 +17,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "cy:open": "cypress open",
-    "cypress": "start-server-and-test start:silent http://localhost:3001/ cypress open"
+    "cypress": "start-server-and-test start:silent http://localhost:3001/ cy:open"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -36,6 +36,9 @@
   },
   "devDependencies": {
     "cypress": "^4.5.0",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.2",
+    "react-test-renderer": "^16.13.1",
     "start-server-and-test": "^1.11.0"
   }
 }
