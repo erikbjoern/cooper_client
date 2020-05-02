@@ -1,7 +1,7 @@
 import React from 'react';
 import {Input, Select, Grid, Segment} from 'semantic-ui-react'
 
-const InputFields = ({ onChangeHandler }) => {
+const InputFields = ({ onChangeHandler, genderOnChangeHandler }) => {
   return (
       <Grid relaxed padded columns='equal'>
         <Grid.Column width={8}>
@@ -17,7 +17,7 @@ const InputFields = ({ onChangeHandler }) => {
         <Grid.Column width={7}>
           <Select
             fluid
-            onChange={onChangeHandler} 
+            onChange={genderOnChangeHandler} 
             placeholder="gender" 
             name="gender" 
             id="gender"

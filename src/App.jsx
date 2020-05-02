@@ -25,6 +25,12 @@ class App extends Component {
         this.setState({ [e.target.name]: e.target.value, entrySaved: false });
     };
 
+    genderOnChangeHandler = (e, data) => {
+      this.setState({
+        [data.name]: data.value
+      })
+    }
+
     onLogin = async e => {
       e.preventDefault();
       const response = await authenticate(
@@ -85,7 +91,10 @@ class App extends Component {
     return (
       <div className="ui main container">
         <Welcome renderLogin={renderLogin} />
-        <InputFields onChangeHandler={this.onChangeHandler} />
+        <InputFields 
+          onChangeHandler={this.onChangeHandler} 
+          genderOnChangeHandler={this.genderOnChangeHandler}  
+        />
         <DisplayCooperResult
           distance={this.state.distance}
           gender={this.state.gender}
