@@ -3,13 +3,23 @@ describe('User gets error message', () => {
     cy.visit('/')
   })
 
-  it('when entering invalid range', () => {
-    cy.get('input#distance').type('100')
+  it('when entering too low age', () => {
+    cy.get('input#distance').type('1000')
     cy.get('select#gender').select('female')
-    cy.get('input#age').type('23')
+    cy.get('input#age').type('10')
     cy.get('p#cooper-message').should('contain',
-      '23 y/o female running 100 meters.'
+      '10 y/o female running 1000 meters.'
     )
-    cy.get('p#cooper-result').should('contain', 'Invalid range of distance for this age and gender.')
+    cy.get('p#cooper-result').should('contain', 'Invalid age range.')
+  })
+  
+  it('when entering too high age', () => {
+    cy.get('input#distance').type('1000')
+    cy.get('select#gender').select('female')
+    cy.get('input#age').type('130')
+    cy.get('p#cooper-message').should('contain',
+      '130 y/o female running 1000 meters.'
+    )
+    cy.get('p#cooper-result').should('contain', 'Invalid age range.')
   })
 })
