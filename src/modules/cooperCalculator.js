@@ -54,6 +54,14 @@ const CooperCalculator = (distance, gender, age) => {
     if (ageRange === "invalid range") {
       return "Invalid age range.";
     }
+
+    let distanceRanges
+
+    if (gender) {
+      distanceRanges = cooperTable[gender.toLowerCase()][ageRange];
+    } else {
+      return "Select gender";
+    }
   
     let ratingIndex;
   

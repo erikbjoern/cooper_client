@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Button } from 'semantic-ui-react'
+import { Button, Container } from 'semantic-ui-react'
 
 import DisplayCooperResult from "./components/DisplayCooperResult";
 import InputFields from "./components/InputFields";
@@ -74,22 +74,22 @@ class App extends Component {
           if (this.state.renderIndex) {
             performanceDataIndex = (
               <>
+                <Button basic id="hide-index" onClick={() => this.setState({renderIndex: false })}>Hide past entries</Button>
                 <DisplayPerformanceData
                   updateIndex={this.state.updateIndex}
                   indexUpdated={() => this.setState({ updateIndex: false })}
                 />
-                <button id="hide-index" onClick={() => this.setState({renderIndex: false })}>Hide past entries</button>
               </>
             )
           } else {
             performanceDataIndex = (
-              <button id="show-index" onClick={() => this.setState({ renderIndex: true })}>Show past entries</button>
+              <Button basic id="show-index" onClick={() => this.setState({ renderIndex: true })}>Show past entries</Button>
             )
           }
           break;
       }
     return (
-      <div className="ui main container">
+      <Container>
         <Welcome renderLogin={renderLogin} />
         <InputFields 
           onChangeHandler={this.onChangeHandler} 
@@ -104,7 +104,7 @@ class App extends Component {
           entryHandler={() => this.setState({ entrySaved: true, updateIndex: true })}
         />
         {performanceDataIndex}
-      </div>
+      </Container>
     );
   }
 }
