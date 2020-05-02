@@ -17,43 +17,37 @@ const DisplayCooperResult = ({
                               entryHandler
                             }) => {
   
-  const result = cooperCalculator(distance, gender, age);
+  const propsPassed = distance && age && gender ? true : false;
 
-  const propsPassed = distance && age ? true : false;
+  const result = cooperCalculator(distance, gender, age)
 
-  if (propsPassed === false) {
-    return (
-      <>
-        {propsPassed && (
-          <>
-            <p id="cooper-message">
-              {age} y/o {gender} running {distance} meters.
-            </p>
-            <p id="cooper-result">Result: {result}</p>
-            {authenticated && !entrySaved ? (
-              <Button
-              basic
-              id="save-result"
-              onClick={() => saveData(result, entryHandler)}
-              >
-                Save entry
-              </Button>
-            ) : (
+  return (
+    <>
+      {propsPassed && (
+        <>
+          <p id="cooper-message">
+          {age} y/o {gender} running {distance} meters.
+          </p>
+          <p id="cooper-result">Result: {result}</p>
+          {authenticated ? (
+            <>
+            { entrySaved ? (
               <p id="response-message">Your entry was saved</p>
+              ) : (
+                <button id="save-entry" onClick={() => saveData(result, entryHandler)}>
+                  Save entry
+                </button>
               )}
-          </>
-        )}
-      </>
-    );
-  }
-  else {
-    return (
-      <div>
-        <p id="cooper-message">{age} y/o {gender} running {distance} meters.</p>
-        <p id="cooper-result">Invalid range of distance for this age and gender.</p>
-      </div>
-    )
-  }
-};
+            </>
+            ) : (
+              <p id="login-request">Login to save your data</p>
+            ) 
+          }
+        </>
+      )}
+    </> 
+  )
+}
+
 
 export default DisplayCooperResult;
