@@ -1,4 +1,5 @@
 import React from "react";
+import { Button } from 'semantic-ui-react'
 
 import cooperCalculator from "../modules/cooperCalculator";
 import { saveData } from "../modules/performanceData";
@@ -33,9 +34,9 @@ const DisplayCooperResult = ({
             { entrySaved ? (
               <p id="response-message">Your entry was saved</p>
               ) : (
-                <button id="save-entry" onClick={() => saveData(result, entryHandler)}>
+                <Button color={'green'} id="save-entry" onClick={() => saveData(result, entryHandler)}>
                   Save entry
-                </button>
+                </Button>
               )}
             </>
             ) : (
