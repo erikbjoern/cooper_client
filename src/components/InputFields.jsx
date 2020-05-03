@@ -4,7 +4,7 @@ import {Input, Select, Grid, Segment} from 'semantic-ui-react'
 const InputFields = ({ onChangeHandler, genderOnChangeHandler }) => {
   return (
       <Grid relaxed padded columns='equal'>
-        <Grid.Column width={8}>
+        <Grid.Column>
           <Input
             fluid
             label="Distance"
@@ -15,7 +15,7 @@ const InputFields = ({ onChangeHandler, genderOnChangeHandler }) => {
           ></Input>
         </Grid.Column>
 
-        <Grid.Column width={7}>
+        <Grid.Column width={3}>
           <Select
             fluid
             onChange={genderOnChangeHandler} 
@@ -31,7 +31,7 @@ const InputFields = ({ onChangeHandler, genderOnChangeHandler }) => {
           />
         </Grid.Column>    
 
-        <Grid.Column width={6}>
+        <Grid.Column>
           <Input
             fluid
             label="Age"

@@ -1,9 +1,9 @@
 import React from "react";
-import {Grid, Container, Button, Form} from 'semantic-ui-react'
+import {Container, Button, Form} from 'semantic-ui-react'
 
 const LoginForm = ({ submitFormHandler }) => {
   return (
-    <Container textAlign="center">
+    <Container>
       <Form onSubmit={submitFormHandler} id="login-form">
         <Form.Group inline>
         <Form.Field>
@@ -14,7 +14,7 @@ const LoginForm = ({ submitFormHandler }) => {
           <label>Password</label>
           <input name="password" type="password" id="password"></input>
         </Form.Field>
-        <Button id="submit">Submit</Button>
+        <Button basic id="submit">Submit</Button>
       </Form.Group>
       </Form>
     </Container>
