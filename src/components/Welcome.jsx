@@ -6,7 +6,7 @@ const Welcome = ({renderLogin}) => {
   return (
     <Container align="center">
       <Divider/>
-      <Header as="h1"> The Cooper Log </Header>
+      <Header as="h1"> The Cooper Calculator </Header>
       <Divider/>
       {renderLogin}
     </Container>

@@ -34,7 +34,7 @@ const InputFields = ({ onChangeHandler, genderOnChangeHandler }) => {
         <Grid.Column width={6}>
           <Input
             fluid
-            label={text="Age", color='#9eba6e'}
+            label="Age"
             onChange={onChangeHandler} 
             name="age" 
             id="age"
