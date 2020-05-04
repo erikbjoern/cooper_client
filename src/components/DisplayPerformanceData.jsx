@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { getData } from "../modules/performanceData"
+import { Line } from 'react-chartjs-2'
 
 class DisplayPerformanceData extends Component {
   state = {
@@ -27,24 +28,30 @@ class DisplayPerformanceData extends Component {
     let dataIndex
 
     if (this.state.performanceData != null) {
-      dataIndex = (
-        <div id="index">
-          {this.state.performanceData.map(item => {
-              return (
-                <>
-                <div key={item.id}>{item.data.message}</div>
-                <div key={item.id}>{item.created_at.substring(0, 10)}</div>
-                </>
-              )
+
+      dataIndex = {
+        labels: this.state.performanceData.map(item => { 
+          return item.created_at.substring(0, 10)
+        }),
+        datasets: [
+          {
+            label: 'Performance data',
+            backgroundColor: 'rgba(255,99,132,0.2)',
+            borderColor: 'rgba(255,99,132,1)',
+            borderWidth: 1,
+            hoverBackgroundColor: 'rgba(255,99,132,0.4)',
+            hoverBorderColor: 'rgba(255,99,132,1)',
+            data: this.state.performanceData.map(item => { 
+              return item.data.message
             })
           }
-        </div>
-      )
+        ]
+      }
     }
 
     return (
       <div>
-        {dataIndex}
+        <Line data={dataIndex} />
       </div>
     )
   }

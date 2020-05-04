@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Button, Container } from 'semantic-ui-react'
+import { Line } from 'react-chartjs-2'
 
 import DisplayCooperResult from "./components/DisplayCooperResult";
 import InputFields from "./components/InputFields";
@@ -104,6 +105,7 @@ class App extends Component {
           entryHandler={() => this.setState({ entrySaved: true, updateIndex: true })}
         />
         {performanceDataIndex}
+        {/* <Line data={} /> */}
       </Container>
     );
   }
