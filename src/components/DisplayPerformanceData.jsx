@@ -42,7 +42,7 @@ class DisplayPerformanceData extends Component {
             hoverBackgroundColor: 'rgba(255,99,132,0.4)',
             hoverBorderColor: 'rgba(255,99,132,1)',
             data: this.state.performanceData.map(item => { 
-              return item.data.message
+              return item.data.distance
             })
           }
         ]

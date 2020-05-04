@@ -34,7 +34,7 @@ const DisplayCooperResult = ({
             { entrySaved ? (
               <p id="response-message">Your entry was saved</p>
               ) : (
-                <Button color={'green'} id="save-entry" onClick={() => saveData(result, entryHandler)}>
+                <Button color={'green'} id="save-entry" onClick={() => saveData(result, distance, entryHandler)}>
                   Save entry
                 </Button>
               )}
